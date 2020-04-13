@@ -989,8 +989,7 @@ public class FingerprintManager implements BiometricAuthenticator, BiometricFing
                 return context.getString(
                     com.android.internal.R.string.fingerprint_acquired_too_slow);
             case FINGERPRINT_ACQUIRED_TOO_FAST:
-                return context.getString(
-                    com.android.internal.R.string.fingerprint_acquired_too_fast);
+                return null;
             case FINGERPRINT_ACQUIRED_VENDOR: {
                     String[] msgArray = context.getResources().getStringArray(
                             com.android.internal.R.array.fingerprint_acquired_vendor);
