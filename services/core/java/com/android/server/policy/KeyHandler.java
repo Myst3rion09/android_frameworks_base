@@ -518,6 +518,7 @@ public class KeyHandler {
         mPowerManagerInternal.powerHint(PowerHint.INTERACTION, 0);
 
         boolean handled = false;
+        boolean enableHapticFeedback = true;
 
         switch(gesture) {
             case CAMERA:
@@ -572,6 +573,7 @@ public class KeyHandler {
                 pulseIntent.putExtra(DOZE_NO_PROXIMITY_CHECK, 1);
                 mContext.sendBroadcastAsUser(pulseIntent,
                     new UserHandle(UserHandle.USER_CURRENT));
+                enableHapticFeedback = false;
                 handled = true;
                 break;
             default:
@@ -580,7 +582,9 @@ public class KeyHandler {
                 break;
         }
 
-        doHapticFeedback(handled);
+        if (enableHapticFeedback) {
+            doHapticFeedback(handled);
+        }
     }
 
     private void acquireGestureWakeLock(int duration) {
