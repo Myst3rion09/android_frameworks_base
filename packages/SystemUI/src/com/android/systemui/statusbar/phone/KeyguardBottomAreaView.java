@@ -340,7 +340,7 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
 
     private void updateRightAffordanceIcon() {
         IconState state = mRightButton.getIcon();
-        mRightAffordanceView.setVisibility(!mDozing && state.isVisible ? View.VISIBLE : View.GONE);
+        mRightAffordanceView.setVisibility(View.GONE);
         if (state.drawable != mRightAffordanceView.getDrawable()
                 || state.tint != mRightAffordanceView.shouldTint()) {
             mRightAffordanceView.setImageDrawable(state.drawable, state.tint);
@@ -381,8 +381,7 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
             // Things are not set up yet; reply hazy, ask again later
             return;
         }
-        mRightAffordanceView.setVisibility(!mDozing && mRightButton.getIcon().isVisible
-                ? View.VISIBLE : View.GONE);
+        mRightAffordanceView.setVisibility(View.GONE);
     }
 
     private void updateIndicationAreaPadding() {
@@ -413,7 +412,7 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
 
     private void updateLeftAffordanceIcon() {
         IconState state = mLeftButton.getIcon();
-        mLeftAffordanceView.setVisibility(!mDozing && state.isVisible ? View.VISIBLE : View.GONE);
+        mLeftAffordanceView.setVisibility(View.GONE);
         if (state.drawable != mLeftAffordanceView.getDrawable()
                 || state.tint != mLeftAffordanceView.shouldTint()) {
             mLeftAffordanceView.setImageDrawable(state.drawable, state.tint);
